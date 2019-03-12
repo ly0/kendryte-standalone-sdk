@@ -2,3 +2,11 @@ language: C
 
 services:
   - docker
+  
+before_install:
+- docker pull ubuntu
+- mkdir /codes
+- cd /codes && git pull https://github.com/ly0/kendryte-standalone-sdk 
+
+script:
+- docker run -v /codes:/sdk ubuntu echo "hahaha"
